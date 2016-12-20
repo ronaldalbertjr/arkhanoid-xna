@@ -30,5 +30,31 @@ namespace Arkhanoid.Classes
             }
             return direction;
         }
+        public static bool GetAnyKeyInput(PlayerIndex playerIndex)
+        {
+            KeyboardState keyboardState = Keyboard.GetState(playerIndex);
+
+            if(playerIndex == PlayerIndex.One && keyboardState.GetPressedKeys().Length > 0 && !keyboardState.IsKeyDown(Keys.Back))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool GetBackspaceInput(PlayerIndex playerIndex)
+        {
+            KeyboardState keyboardState = Keyboard.GetState(playerIndex);
+
+            if (playerIndex == PlayerIndex.One && keyboardState.IsKeyDown(Keys.Back))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

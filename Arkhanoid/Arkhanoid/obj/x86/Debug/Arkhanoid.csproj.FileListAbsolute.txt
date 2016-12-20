@@ -58,3 +58,7 @@ C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Ark
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Arkhanoid\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Arkhanoid\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Arkhanoid\obj\x86\Debug\Arkhanoid.csprojResolveAssemblyReference.cache
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Arkhanoid\bin\Windows\x86\Debug\Content\menuImage.png
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Arkhanoid\bin\Windows\x86\Debug\Content\lostImage.png
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Arkhanoid\bin\Windows\x86\Debug\Content\winImage.png
+C:\Users\usuario\Documents\Visual Studio 2015\Projects\AkhanoidXNA\Arkhanoid\Arkhanoid\bin\Windows\x86\Debug\Content\ballCollision.mp3

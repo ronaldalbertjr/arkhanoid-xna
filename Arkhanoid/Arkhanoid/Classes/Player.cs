@@ -11,6 +11,7 @@ namespace Arkhanoid.Classes
     class Player:GameObject
     {
         public Vector2 Velocity;
+        public int blocksDestroyed = 0;
         public override void Move(Vector2 amount)
         {
             base.Move(amount);
