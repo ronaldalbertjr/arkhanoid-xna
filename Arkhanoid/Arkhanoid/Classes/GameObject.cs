@@ -27,9 +27,9 @@ namespace Arkhanoid.Classes
         {
             get { return new Rectangle((int)Position.X, (int)Position.Y, (int)Texture.Width, (int)Texture.Height); }
         }
-        public static bool CheckCollision(GameObject player, Ball bola)
+        public static bool CheckCollision(GameObject gameObject, Ball bola)
         {
-            if (player.Bounds.Intersects(bola.Bounds))
+            if (gameObject.Bounds.Intersects(bola.Bounds))
                 return true;
             else
                 return false;

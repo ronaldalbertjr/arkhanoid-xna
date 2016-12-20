@@ -25,7 +25,10 @@ namespace Arkhanoid.Classes
             Velocity.Y = (float)Math.Sin(rotation);
 
             Velocity.Y = 1;
-
+            if (random.Next(2) == 1)
+            {
+                Velocity.X *= -1;
+            }
             Velocity *= speed;
         }
 

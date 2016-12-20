@@ -19,12 +19,11 @@ namespace Arkhanoid
 
         Player player;
         Ball ball;
+        List<Block> blocks;
 
         const int PLAYER_OFFSET = 70;
         const float PLAYER_SPEED = 10f;
         const float BALL_SPEED = 4f;
-
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -39,6 +38,7 @@ namespace Arkhanoid
 
             player = new Player();
             ball = new Ball();
+            blocks = new List<Block>();
 
             base.Initialize();
         }
@@ -51,12 +51,21 @@ namespace Arkhanoid
 
             ball.Texture = Content.Load<Texture2D>("ballImage");
             ball.Launch(BALL_SPEED);
-            
+            for (int i = 0; i <= ScreenHeight / 2 ; i += Content.Load<Texture2D>("blockImage").Height + 30)
+            {
+                for (int j = 0; j <= ScreenWidth; j += Content.Load<Texture2D>("blockImage").Width + 20)
+                {
+                    blocks.Add(new Block());
+                    blocks[blocks.Count - 1].Position = new Vector2(j, i);
+                    blocks[blocks.Count - 1].Texture = Content.Load<Texture2D>("blockImage");
+                }
+            }
+
         }
         protected override void UnloadContent()
         {
         }
-        
+
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -70,17 +79,25 @@ namespace Arkhanoid
 
             ball.Move(ball.Velocity);
 
-            if(GameObject.CheckCollision(player, ball))
+            if (GameObject.CheckCollision(player, ball))
             {
                 ball.Velocity.Y = -Math.Abs(ball.Velocity.Y);
             }
             else if (ball.Position.Y < 0)
             {
-                ball.Launch(BALL_SPEED);
+                ball.Velocity.Y = Math.Abs(ball.Velocity.Y);
             }
             else if (ball.Position.Y + ball.Texture.Height > ScreenHeight)
             {
                 ball.Launch(BALL_SPEED);
+            }
+            foreach (Block b in blocks)
+            {
+                if(GameObject.CheckCollision(b, ball) && !b.is_Hitten)
+                {
+                    b.is_Hitten = true;
+                    ball.Velocity.Y = Math.Abs(ball.Velocity.Y);
+                }
             }
             base.Update(gameTime);
         }
@@ -91,6 +108,13 @@ namespace Arkhanoid
             spriteBatch.Begin();
             player.Draw(spriteBatch);
             ball.Draw(spriteBatch);
+            foreach(Block b in blocks)
+            {
+                if(!b.is_Hitten)
+                {
+                    b.Draw(spriteBatch);
+                }
+            }
             spriteBatch.End();
             
             base.Draw(gameTime);
